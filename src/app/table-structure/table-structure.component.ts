@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewChild, Input, OnChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 import { Table } from 'primeng/table';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
@@ -30,8 +37,8 @@ export class TableStructureComponent implements OnInit, OnChanges {
     private customerService: CustomerService,
     private primengConfig: PrimeNGConfig
   ) {}
-  ngOnChanges() {
-    console.log('Test');
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
   }
   ngOnInit() {
     this.home = { icon: 'pi pi-home', routerLink: '/' };

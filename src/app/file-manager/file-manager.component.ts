@@ -9,7 +9,7 @@ import { MessageService } from 'primeng/api';
 export class FileManagerComponent implements OnInit {
   nodeChanges: any[] = [];
   constructor() {}
-  @Output() shareDataToTable: EventEmitter<any> = new EventEmitter();
+
   ngOnInit() {}
   nodeChange($event) {
     this.nodeChanges.push($event);
