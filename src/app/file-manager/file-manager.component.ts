@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem, MessageService, TreeNode } from 'primeng/api';
 
 @Component({
   selector: 'app-file-manager',
@@ -8,6 +8,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 })
 export class FileManagerComponent implements OnInit {
   nodeChanges: any[] = [];
+  treeData: TreeNode[] = [];
   items: MenuItem[] = [];
   constructor() {}
 
@@ -17,5 +18,9 @@ export class FileManagerComponent implements OnInit {
     this.items = this.nodeChanges.map((f) => {
       return { label: f.label };
     });
+  }
+
+  treeLazyLoadData($event){
+  this.treeData =$event;
   }
 }

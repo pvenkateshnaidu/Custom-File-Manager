@@ -11,6 +11,7 @@ import { NodeService } from '../nodeservice.service';
 export class FileStructureComponent implements OnInit {
   files: TreeNode[];
   @Output() shareData: EventEmitter<any> = new EventEmitter();
+  @Output() shareDataTree: EventEmitter<any> = new EventEmitter();
   loading: boolean;
   selectedFiles1: any;
   selectedFile: any;
@@ -40,7 +41,7 @@ export class FileStructureComponent implements OnInit {
       //in a real application, make a call to a remote url to load children of the current node and add the new nodes as children
       this.nodeService.getLazyFiles().then((nodes) => {
         this.shareData.emit(event.node);
-
+        this.shareDataTree.emit(nodes);
         event.node.children = nodes;
         this.messageService.add({
           severity: 'info',

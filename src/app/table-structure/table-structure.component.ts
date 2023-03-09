@@ -22,7 +22,7 @@ export class TableStructureComponent implements OnInit, OnChanges {
   customers: Customer[];
   @Input('nodeChanges') nodeChanges: any;
   @Input('items') items: MenuItem;
-
+  @Input('treeData') treeData: TreeNode[];
   files1: TreeNode[];
   home: MenuItem;
   cols: any[];

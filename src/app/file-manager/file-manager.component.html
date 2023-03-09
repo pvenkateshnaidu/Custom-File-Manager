@@ -4,6 +4,7 @@
       <div class="flex font-bold text-gray-900 border-round">
         <app-file-structure
           (shareData)="nodeChange($event)"
+          (shareDataTree)="treeLazyLoadData($event)"
         ></app-file-structure>
       </div>
       <div
@@ -19,6 +20,7 @@
         <app-table-structure
           [nodeChanges]="nodeChanges"
           [items]="items"
+          [treeData]="treeData"
         ></app-table-structure>
       </div>
     </div>
