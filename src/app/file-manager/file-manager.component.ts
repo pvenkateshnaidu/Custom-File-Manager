@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-file-manager',
@@ -8,10 +8,14 @@ import { MessageService } from 'primeng/api';
 })
 export class FileManagerComponent implements OnInit {
   nodeChanges: any[] = [];
+  items: MenuItem[] = [];
   constructor() {}
 
   ngOnInit() {}
   nodeChange($event) {
     this.nodeChanges.push($event);
+    this.items = this.nodeChanges.map((f) => {
+      return { label: f.label };
+    });
   }
 }

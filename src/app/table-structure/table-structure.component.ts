@@ -20,6 +20,7 @@ import { CustomerService } from '../customerservice';
 export class TableStructureComponent implements OnInit, OnChanges {
   customers: Customer[];
   @Input('nodeChanges') nodeChanges: any;
+  @Input('items') items: MenuItem;
   selectedCustomers: Customer[];
 
   representatives: Representative[];
@@ -30,7 +31,6 @@ export class TableStructureComponent implements OnInit, OnChanges {
 
   @ViewChild('dt') table: Table;
 
-  items: MenuItem[];
   home: MenuItem;
 
   constructor(
