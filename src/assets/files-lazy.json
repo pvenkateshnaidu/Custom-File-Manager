@@ -3,7 +3,7 @@
     {
       "label": "Lazy Node 1",
       "data": {
-        "label": "Lazy Node 1",
+        "label": "Child Lazy Node 1",
         "size": 154,
         "expandedIcon": "pi pi-folder-open",
         "collapsedIcon": "pi pi-folder",
@@ -16,8 +16,8 @@
     {
       "label": "Lazy Node 2",
       "data": {
-        "label": "Lazy Node 1",
-        "size": 154,
+        "label": "Child Lazy Node 2",
+        "size": 152,
         "expandedIcon": "pi pi-folder-open",
         "collapsedIcon": "pi pi-folder",
         "leaf": false
@@ -29,8 +29,8 @@
     {
       "label": "Lazy Node 3",
       "data": {
-        "label": "Lazy Node 1",
-        "size": 154,
+        "label": "Child Lazy Node 31",
+        "size": 155,
         "expandedIcon": "pi pi-folder-open",
         "collapsedIcon": "pi pi-folder",
         "leaf": false
