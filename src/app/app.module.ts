@@ -25,6 +25,7 @@ import { TableStructureComponent } from './table-structure/table-structure.compo
 import { FileStructureComponent } from './file-structure/file-structure.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { NodeService } from './nodeservice.service';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { NodeService } from './nodeservice.service';
     ProgressBarModule,
     HttpClientModule,
     FormsModule,
+    BreadcrumbModule,
   ],
   declarations: [
     AppComponent,

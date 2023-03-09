@@ -1,37 +1,22 @@
 <div class="card">
   <div class="card-container yellow-container overflow-hidden">
     <div class="flex">
-      <div
-        class="
-          flex
-          align-items-center
-          justify-content-center
-          bg-yellow-500
-          font-bold
-          text-gray-900
-          m-2
-          px-5
-          py-3
-          border-round
-        "
-      >
-        <app-file-structure></app-file-structure>
+      <div class="flex font-bold text-gray-900 border-round">
+        <app-file-structure
+          (shareData)="nodeChange($event)"
+        ></app-file-structure>
       </div>
       <div
         class="
           flex
           align-items-center
           justify-content-center
-          bg-yellow-500
           font-bold
           text-gray-900
-          m-2
-          px-5
-          py-3
           border-round
         "
       >
-        <app-table-structure></app-table-structure>
+        <app-table-structure [nodeChanges]="nodeChanges"></app-table-structure>
       </div>
     </div>
   </div>

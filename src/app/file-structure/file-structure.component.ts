@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TreeNode } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { NodeService } from '../nodeservice.service';
@@ -10,7 +10,7 @@ import { NodeService } from '../nodeservice.service';
 })
 export class FileStructureComponent implements OnInit {
   files: TreeNode[];
-
+  @Output() shareData: EventEmitter<any> = new EventEmitter();
   loading: boolean;
 
   constructor(
@@ -30,6 +30,8 @@ export class FileStructureComponent implements OnInit {
     if (event.node) {
       //in a real application, make a call to a remote url to load children of the current node and add the new nodes as children
       this.nodeService.getLazyFiles().then((nodes) => {
+        this.shareData.emit(event.node);
+
         event.node.children = nodes;
         this.messageService.add({
           severity: 'info',

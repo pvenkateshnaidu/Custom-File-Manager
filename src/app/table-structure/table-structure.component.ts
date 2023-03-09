@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges } from '@angular/core';
 
 import { Table } from 'primeng/table';
-import { PrimeNGConfig } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { Customer, Representative } from '../customer';
 import { CustomerService } from '../customerservice';
 
@@ -10,9 +10,9 @@ import { CustomerService } from '../customerservice';
   templateUrl: './table-structure.component.html',
   styleUrls: ['./table-structure.component.css'],
 })
-export class TableStructureComponent implements OnInit {
+export class TableStructureComponent implements OnInit, OnChanges {
   customers: Customer[];
-
+  @Input('nodeChanges') nodeChanges: any;
   selectedCustomers: Customer[];
 
   representatives: Representative[];
@@ -23,12 +23,19 @@ export class TableStructureComponent implements OnInit {
 
   @ViewChild('dt') table: Table;
 
+  items: MenuItem[];
+  home: MenuItem;
+
   constructor(
     private customerService: CustomerService,
     private primengConfig: PrimeNGConfig
   ) {}
-
+  ngOnChanges() {
+    console.log('Test');
+  }
   ngOnInit() {
+    this.home = { icon: 'pi pi-home', routerLink: '/' };
+
     this.customerService.getCustomersLarge().then((customers) => {
       this.customers = customers;
       this.loading = false;
