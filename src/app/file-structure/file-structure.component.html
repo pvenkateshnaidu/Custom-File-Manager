@@ -2,7 +2,11 @@
   <h2>Test-2022-21</h2>
   <p-tree
     [value]="files"
+    selectionMode="single"
     (onNodeExpand)="nodeExpand($event)"
+    [(selection)]="selectedFiles1"
     [loading]="loading"
+    [contextMenu]="cm"
   ></p-tree>
+  <p-contextMenu #cm [model]="items"></p-contextMenu>
 </div>

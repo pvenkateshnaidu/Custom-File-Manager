@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { TreeNode } from 'primeng/api';
+import { MenuItem, TreeNode } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { NodeService } from '../nodeservice.service';
 @Component({
@@ -12,7 +12,9 @@ export class FileStructureComponent implements OnInit {
   files: TreeNode[];
   @Output() shareData: EventEmitter<any> = new EventEmitter();
   loading: boolean;
-
+  selectedFiles1: any;
+  selectedFile: any;
+  items: MenuItem[];
   constructor(
     private nodeService: NodeService,
     private messageService: MessageService
@@ -24,6 +26,13 @@ export class FileStructureComponent implements OnInit {
       this.nodeService.getLazyFiles().then((files) => (this.files = files));
       this.loading = false;
     }, 1000);
+    this.items = [
+      {
+        label: 'Download',
+        icon: 'pi pi-download',
+        command: (event) => this.viewFile(this.selectedFile),
+      },
+    ];
   }
 
   nodeExpand(event) {
@@ -40,5 +49,17 @@ export class FileStructureComponent implements OnInit {
         });
       });
     }
+  }
+
+  viewFile(file: TreeNode) {
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Node Details',
+      detail: file.label,
+    });
+  }
+
+  unselectFile() {
+    this.selectedFile = null;
   }
 }
